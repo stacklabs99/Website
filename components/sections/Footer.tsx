@@ -4,9 +4,9 @@ import { useRef } from 'react'
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
 
 const links = {
-  Services: ['Web Development', 'SaaS Platforms', 'UI/UX Design', 'AI Automation', 'Branding', 'Mobile Apps'],
-  Company:  ['About Us', 'Our Process', 'Case Studies', 'Careers', 'Blog'],
-  Legal:    ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
+  Serviços: ['Desenvolvimento Web', 'Plataformas SaaS', 'Design UI/UX', 'Automação com IA', 'Branding', 'Apps Mobile'],
+  Empresa:  ['Sobre Nós', 'O Nosso Processo', 'Casos de Estudo', 'Carreiras', 'Blog'],
+  Legal:    ['Política de Privacidade', 'Termos de Serviço', 'Política de Cookies'],
 }
 
 const socials = [
@@ -112,8 +112,8 @@ export default function Footer() {
               animate={brandInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              We design and engineer premium digital experiences for ambitious companies.
-              Obsessively crafted. Built to last.
+              Desenhamos e desenvolvemos experiências digitais premium para empresas ambiciosas.
+              Criadas com obsessão. Construídas para durar.
             </motion.p>
 
             <motion.div
@@ -168,13 +168,13 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h4 className="text-sm font-semibold text-white mb-1">Stay updated</h4>
-              <p className="text-sm text-white/30">Get insights on product design and engineering.</p>
+              <h4 className="text-sm font-semibold text-white mb-1">Mantém-te atualizado</h4>
+              <p className="text-sm text-white/30">Recebe insights sobre design de produto e engenharia.</p>
             </div>
             <div className="flex gap-2 w-full md:w-auto">
               <input
                 type="email"
-                placeholder="your@email.com"
+                placeholder="o-teu@email.com"
                 className="flex-1 md:w-64 px-4 py-2.5 rounded-xl glass text-sm text-white placeholder:text-white/20
                   outline-none focus:ring-1 focus:ring-[#4f8ef7]/40 focus:border-white/15 transition-all duration-300"
               />
@@ -187,7 +187,7 @@ export default function Footer() {
                   boxShadow: '0 4px 20px rgba(79,142,247,0.3)',
                 }}
               >
-                Subscribe →
+                Subscrever →
               </motion.button>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 border-t border-white/04">
           <p className="text-xs text-white/20 tracking-tight">
-            © {year} StackLabs. All rights reserved. Built with obsession.
+            © {year} StackLabs. Todos os direitos reservados. Construído com obsessão.
           </p>
           <div className="flex items-center gap-2 text-xs text-white/15">
             <div className="relative">
@@ -207,7 +207,7 @@ export default function Footer() {
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
               />
             </div>
-            <span>All systems operational</span>
+            <span>Todos os sistemas operacionais</span>
           </div>
         </div>
       </div>

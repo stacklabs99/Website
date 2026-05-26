@@ -8,41 +8,41 @@ import Badge from '@/components/ui/Badge'
 const steps = [
   {
     number: '01',
-    label: 'Discovery',
-    description: 'Deep-dive into your business, users, and goals. We research the competitive landscape and define what success looks like.',
-    details: ['User research', 'Competitive analysis', 'Goal alignment', 'Technical audit'],
+    label: 'Descoberta',
+    description: 'Mergulho profundo no teu negócio, utilizadores e objetivos. Analisamos o mercado e definimos o que é sucesso.',
+    details: ['Pesquisa de utilizadores', 'Análise competitiva', 'Alinhamento de objetivos', 'Auditoria técnica'],
     color: 'blue',
     accent: '#4f8ef7',
   },
   {
     number: '02',
-    label: 'Strategy',
-    description: 'We map out the full product architecture, feature set, and roadmap. Every decision is made with purpose and precision.',
-    details: ['Product roadmap', 'Tech stack selection', 'Sprint planning', 'KPI definition'],
+    label: 'Estratégia',
+    description: 'Mapeamos a arquitetura completa do produto, funcionalidades e roadmap. Cada decisão tomada com propósito e precisão.',
+    details: ['Roadmap do produto', 'Seleção de tecnologias', 'Planeamento de sprints', 'Definição de KPIs'],
     color: 'purple',
     accent: '#8b5cf6',
   },
   {
     number: '03',
     label: 'Design',
-    description: 'From wireframes to high-fidelity prototypes — we craft interfaces that feel inevitable. Design systems built to scale.',
-    details: ['UX wireframes', 'UI design system', 'Motion design', 'Prototype testing'],
+    description: 'De wireframes a protótipos de alta fidelidade — criamos interfaces que parecem inevitáveis. Sistemas de design para escalar.',
+    details: ['Wireframes UX', 'Sistema de design', 'Motion design', 'Testes de protótipo'],
     color: 'pink',
     accent: '#ec4899',
   },
   {
     number: '04',
-    label: 'Development',
-    description: 'Clean, performant code written by engineers who care about craft. Every line reviewed, every component tested.',
-    details: ['Frontend build', 'Backend APIs', 'Testing & QA', 'Performance tuning'],
+    label: 'Desenvolvimento',
+    description: 'Código limpo e performático escrito por engenheiros que se importam com o craft. Cada linha revista, cada componente testado.',
+    details: ['Construção frontend', 'APIs backend', 'Testes e QA', 'Otimização de performance'],
     color: 'emerald',
     accent: '#10b981',
   },
   {
     number: '05',
-    label: 'Launch',
-    description: 'Precision deployment with zero downtime. We handle CI/CD, monitoring, and stand by for the critical first 72 hours.',
-    details: ['CI/CD pipeline', 'Monitoring setup', 'SEO & analytics', 'Post-launch support'],
+    label: 'Lançamento',
+    description: 'Deploy de precisão sem downtime. Tratamos do CI/CD, monitorização e estamos presentes nas primeiras 72 horas críticas.',
+    details: ['Pipeline CI/CD', 'Configuração de monitorização', 'SEO e analytics', 'Suporte pós-lançamento'],
     color: 'amber',
     accent: '#f59e0b',
   },
@@ -176,14 +176,14 @@ export default function Process() {
         {/* Header */}
         <div className="max-w-xl mb-20">
           <RevealFade delay={0.1}>
-            <Badge variant="purple" className="mb-5">Our Process</Badge>
+            <Badge variant="purple" className="mb-5">O Nosso Processo</Badge>
           </RevealFade>
           <RevealWords delay={0.2} className="font-display font-bold text-[clamp(2.2rem,5vw,4rem)] leading-[1.08] tracking-tight text-white mb-5">
-            From idea to shipped product
+            Da ideia ao produto lançado
           </RevealWords>
           <RevealFade delay={0.4}>
             <p className="text-white/40 text-[1.05rem] leading-relaxed">
-              A proven methodology that eliminates uncertainty and delivers results consistently.
+              Uma metodologia comprovada que elimina incerteza e entrega resultados de forma consistente.
             </p>
           </RevealFade>
         </div>

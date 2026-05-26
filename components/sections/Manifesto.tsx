@@ -6,26 +6,26 @@ import { motion, useInView, useScroll, useTransform, useMotionValue, useSpring }
 const principles = [
   {
     num: '001',
-    title: "We don't ship fast. We ship right.",
-    body: 'Speed without quality is just debt with a deadline. We architect correctly the first time — because the fastest code is the code you never have to rewrite.',
+    title: "Não lançamos rápido. Lançamos certo.",
+    body: 'Velocidade sem qualidade é apenas dívida com prazo. Arquitetamos corretamente da primeira vez — porque o código mais rápido é o que nunca tens de reescrever.',
     accent: '#4f8ef7',
   },
   {
     num: '002',
-    title: 'Design is not decoration.',
-    body: 'Every pixel, every interaction, every transition exists to serve a purpose. The best interface is the one the user never consciously thinks about.',
+    title: 'Design não é decoração.',
+    body: 'Cada pixel, cada interação, cada transição existe para servir um propósito. A melhor interface é aquela em que o utilizador nunca pensa conscientemente.',
     accent: '#8b5cf6',
   },
   {
     num: '003',
-    title: "We treat your product like it's ours.",
-    body: "We obsess over your metrics, your retention, your growth. Not because we're asked to. Because when you win, we win.",
+    title: "Tratamos o teu produto como se fosse nosso.",
+    body: "Obcecamo-nos com as tuas métricas, a tua retenção, o teu crescimento. Não porque nos pedem. Porque quando tu ganhas, nós ganhamos.",
     accent: '#10b981',
   },
   {
     num: '004',
-    title: 'Craft is a competitive advantage.',
-    body: "In a world of AI-generated mediocrity, exceptional craft is the last true differentiator. We build for companies that refuse to be average.",
+    title: 'Craft é uma vantagem competitiva.',
+    body: "Num mundo de mediocridade gerada por IA, craft excecional é o último diferenciador verdadeiro. Construímos para empresas que se recusam a ser mediocres.",
     accent: '#f59e0b',
   },
 ]
@@ -153,7 +153,7 @@ export default function Manifesto() {
             transition={{ duration: 0.7 }}
           >
             <div className="h-px w-10 bg-[#4f8ef7]/60" />
-            <span className="text-[10px] text-white/28 tracking-[0.22em] uppercase">How We Think</span>
+            <span className="text-[10px] text-white/28 tracking-[0.22em] uppercase">Como Pensamos</span>
           </motion.div>
 
           <motion.div style={{ y: yShift }}>
@@ -165,7 +165,7 @@ export default function Manifesto() {
                 animate={headerInView ? { y: 0 } : {}}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               >
-                The internet deserves
+                A internet merece
               </motion.p>
             </div>
             <div className="overflow-hidden">
@@ -176,7 +176,7 @@ export default function Manifesto() {
                 animate={headerInView ? { y: 0 } : {}}
                 transition={{ duration: 1, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
               >
-                better software.
+                software melhor.
               </motion.p>
             </div>
           </motion.div>
@@ -196,7 +196,7 @@ export default function Manifesto() {
               className="font-display font-semibold text-white/45 max-w-md leading-relaxed"
               style={{ fontSize: 'clamp(1.1rem,2vw,1.4rem)', letterSpacing: '-0.02em' }}
             >
-              "We don't just build products.<br />We build the companies behind them."
+              "Não construímos apenas produtos.<br />Construímos as empresas por detrás deles."
             </motion.blockquote>
 
             <motion.a
@@ -208,7 +208,7 @@ export default function Manifesto() {
               whileHover={{ x: 4 }}
               className="flex items-center gap-2 text-sm font-semibold text-[#4f8ef7] hover:text-blue-300 transition-colors group whitespace-nowrap"
             >
-              Work with us
+              Trabalha connosco
               <motion.span
                 className="inline-block"
                 animate={{ x: [0, 4, 0] }}

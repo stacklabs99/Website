@@ -7,7 +7,6 @@ import TrustedBy from '@/components/sections/TrustedBy'
 import Services from '@/components/sections/Services'
 import Process from '@/components/sections/Process'
 import Projects from '@/components/sections/Projects'
-import Stats from '@/components/sections/Stats'
 import Manifesto from '@/components/sections/Manifesto'
 import CTA from '@/components/sections/CTA'
 import Footer from '@/components/sections/Footer'
@@ -31,7 +30,6 @@ export default function Home() {
           <Services />
           <Process />
           <Projects />
-          <Stats />
           <Manifesto />
           <CTA />
           <Footer />

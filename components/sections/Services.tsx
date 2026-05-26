@@ -6,43 +6,43 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from 'fram
 const services = [
   {
     num: '01',
-    title: 'Web Development',
-    desc: 'Pixel-perfect applications built for performance, scalability, and impact. We engineer web products that users love and businesses scale on.',
+    title: 'Desenvolvimento Web',
+    desc: 'Aplicações pixel-perfect construídas para performance, escalabilidade e impacto. Desenvolvemos produtos web que os utilizadores adoram e as empresas escalam.',
     tags: ['Next.js', 'React', 'TypeScript', 'Edge'],
     accent: '#4f8ef7',
   },
   {
     num: '02',
-    title: 'SaaS Platforms',
-    desc: 'End-to-end SaaS architecture with auth, billing, dashboards, and multi-tenancy. From zero to enterprise-ready.',
+    title: 'Plataformas SaaS',
+    desc: 'Arquitetura SaaS completa com autenticação, faturação, dashboards e multi-tenancy. Do zero ao enterprise.',
     tags: ['Architecture', 'Stripe', 'Auth', 'Kubernetes'],
     accent: '#8b5cf6',
   },
   {
     num: '03',
-    title: 'UI/UX Design',
-    desc: 'Design systems built with obsessive intent. Every pixel, every transition, every micro-interaction crafted to feel inevitable.',
+    title: 'Design UI/UX',
+    desc: 'Sistemas de design construídos com intenção obsessiva. Cada pixel, cada transição, cada micro-interação criada para parecer inevitável.',
     tags: ['Figma', 'Design System', 'Motion', 'Research'],
     accent: '#ec4899',
   },
   {
     num: '04',
-    title: 'AI Automation',
-    desc: 'Intelligent workflows and AI-powered features on production-grade infrastructure. RAG pipelines, agents, custom fine-tuning.',
+    title: 'Automação com IA',
+    desc: 'Workflows inteligentes e funcionalidades com IA em infraestrutura de produção. Pipelines RAG, agentes, fine-tuning personalizado.',
     tags: ['LLMs', 'RAG', 'Agents', 'Vector DBs'],
     accent: '#10b981',
   },
   {
     num: '05',
-    title: 'Brand Identity',
-    desc: 'Strategic branding that makes you the obvious choice in a crowded market — from naming to complete visual system.',
+    title: 'Identidade de Marca',
+    desc: 'Branding estratégico que te torna a escolha óbvia num mercado saturado — do naming ao sistema visual completo.',
     tags: ['Strategy', 'Identity', 'Visual System', 'Voice'],
     accent: '#f59e0b',
   },
   {
     num: '06',
-    title: 'Mobile Apps',
-    desc: 'Native-feel mobile experiences for iOS and Android. High-performance React Native with real-time capabilities.',
+    title: 'Apps Mobile',
+    desc: 'Experiências mobile nativas para iOS e Android. React Native de alta performance com capacidades em tempo real.',
     tags: ['React Native', 'iOS', 'Android', 'Expo'],
     accent: '#06b6d4',
   },
@@ -192,7 +192,7 @@ export default function Services() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="h-px w-10 bg-[#4f8ef7]/60" />
-            <span className="text-[10px] text-white/28 tracking-[0.22em] uppercase font-medium">What We Do</span>
+            <span className="text-[10px] text-white/28 tracking-[0.22em] uppercase font-medium">O Que Fazemos</span>
           </motion.div>
 
           <div className="overflow-hidden mb-5">
@@ -203,7 +203,7 @@ export default function Services() {
               animate={headerInView ? { y: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              Everything to build
+              Tudo para construir
             </motion.h2>
           </div>
           <div className="overflow-hidden">
@@ -214,7 +214,7 @@ export default function Services() {
               animate={headerInView ? { y: 0 } : {}}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              at the highest level.
+              ao mais alto nível.
             </motion.h2>
           </div>
         </div>

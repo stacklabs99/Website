@@ -1,16 +1,15 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import { motion, AnimatePresence, useSpring } from 'framer-motion'
 
 const links = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work',     href: '#projects' },
-  { label: 'Process',  href: '#process'  },
-  { label: 'About',    href: '#stats'    },
+  { label: 'Serviços', href: '#services' },
+  { label: 'Trabalho', href: '#projects' },
+  { label: 'Processo', href: '#process'  },
+  { label: 'Sobre',    href: '#stats'    },
 ]
 
-/* ─── Magnetic nav link ──────────────────────────────────────── */
 function NavLink({ label, href, active }: { label: string; href: string; active: boolean }) {
   const ref = useRef<HTMLAnchorElement>(null)
   const x = useSpring(0, { stiffness: 350, damping: 28 })
@@ -53,14 +52,11 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
-
-      /* active section detection */
       const sections = links.map(l => l.href.slice(1))
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && window.scrollY >= el.offsetTop - 200) {
-          setActive('#' + id)
-          break
+          setActive('#' + id); break
         }
       }
     }
@@ -103,8 +99,7 @@ export default function Navbar() {
                 </svg>
               </motion.div>
               <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300"
-                style={{ background: 'linear-gradient(135deg,#4f8ef7,#8b5cf6)', filter: 'blur(8px)' }}
-              />
+                style={{ background: 'linear-gradient(135deg,#4f8ef7,#8b5cf6)', filter: 'blur(8px)' }} />
             </div>
             <span className="font-display font-bold text-[16px] tracking-tight text-white">
               Stack<span className="text-[#4f8ef7]">Labs</span>
@@ -138,16 +133,14 @@ export default function Navbar() {
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-[13px] font-semibold text-white btn-shimmer"
             >
-              Get Started
+              Começar
               <span className="text-white/60">→</span>
             </motion.a>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-xl text-white/40 hover:text-white hover:bg-white/05 transition-all"
-          >
+          {/* Mobile button */}
+          <button onClick={() => setOpen(!open)}
+            className="md:hidden p-2 rounded-xl text-white/40 hover:text-white hover:bg-white/05 transition-all">
             <div className="w-5 h-3.5 flex flex-col justify-between">
               <motion.div animate={{ rotate: open ? 45 : 0, y: open ? 6 : 0 }} className="h-px bg-current rounded-full" />
               <motion.div animate={{ opacity: open ? 0 : 1 }} className="h-px bg-current rounded-full" />
@@ -170,32 +163,23 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
           >
             {links.map((link, i) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                onClick={() => setOpen(false)}
+              <motion.a key={link.label} href={link.href} onClick={() => setOpen(false)}
                 initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display font-bold text-[2.8rem] text-white/60 hover:text-white transition-colors my-2"
                 style={{ letterSpacing: '-0.03em' }}
-              >
-                {link.label}
-              </motion.a>
+              >{link.label}</motion.a>
             ))}
-            <motion.a
-              href="#contact"
-              onClick={() => setOpen(false)}
+            <motion.a href="#contact" onClick={() => setOpen(false)}
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.36, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8 px-8 py-4 rounded-2xl font-semibold text-white btn-shimmer"
               style={{ background: 'linear-gradient(135deg,#1a4fd8,#4f8ef7)' }}
-            >
-              Get Started →
-            </motion.a>
+            >Começar →</motion.a>
           </motion.div>
         )}
       </AnimatePresence>
