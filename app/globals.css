@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Syne', system-ui, sans-serif;
+
+  --bg: #050507;
+  --surface: #0a0a10;
+  --surface-2: #101018;
+  --border: rgba(255,255,255,0.055);
+  --border-bright: rgba(255,255,255,0.10);
+
+  --accent: #4f8ef7;
+  --accent-dim: rgba(79,142,247,0.18);
+  --accent-glow: rgba(79,142,247,0.3);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Hide native cursor on desktop */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(79,142,247,0.35); border-radius: 2px; }
+
+/* ─── Selection ──────────────────────────────────────────────── */
+::selection { background: rgba(79,142,247,0.25); color: #fff; }
+
+/* ─── Focus ──────────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid rgba(79,142,247,0.5); outline-offset: 3px; border-radius: 4px; }
+
+/* ─── Noise Overlay ──────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9999;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ─── Custom Cursor ──────────────────────────────────────────── */
+.cursor-dot {
+  width: 4px; height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 999999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, opacity 0.2s, width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(79,142,247,0.5);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s var(--ease-out-expo),
+              height 0.35s var(--ease-out-expo),
+              border-color 0.35s,
+              background 0.35s,
+              opacity 0.35s;
+}
+.cursor-ring.hovering {
+  width: 56px; height: 56px;
+  border-color: rgba(79,142,247,0.8);
+  background: rgba(79,142,247,0.06);
+}
+.cursor-ring.clicking {
+  width: 28px; height: 28px;
+  background: rgba(79,142,247,0.15);
+}
+
+/* ─── Scroll Progress ────────────────────────────────────────── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f8ef7, #8b5cf6, #4f8ef7);
+  background-size: 200% 100%;
+  animation: progress-shimmer 2s linear infinite;
+  transform-origin: left center;
+  z-index: 999999;
+  pointer-events: none;
+}
+@keyframes progress-shimmer {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* ─── Page Loader ────────────────────────────────────────────── */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999998;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ─── Typography ──────────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+
+.text-gradient {
+  background: linear-gradient(135deg, #fff 0%, #a8c4ff 45%, #b197fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-blue {
+  background: linear-gradient(135deg, #60a5fa 0%, #4f8ef7 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-animated {
+  background: linear-gradient(270deg, #4f8ef7, #8b5cf6, #ec4899, #4f8ef7);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Glass ──────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.028);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--border);
+}
+.glass-md {
+  background: rgba(255,255,255,0.042);
+  backdrop-filter: blur(40px) saturate(1.6);
+  -webkit-backdrop-filter: blur(40px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ─── Patterns ───────────────────────────────────────────────── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.dot-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Glow ───────────────────────────────────────────────────── */
+.glow-blue { box-shadow: 0 0 40px var(--accent-glow); }
+.glow-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(90px); pointer-events: none;
+}
+
+/* ─── Shimmer button ──────────────────────────────────────────── */
+.btn-shimmer { position: relative; overflow: hidden; }
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -120%;
+  width: 60%; height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s var(--ease-out-expo);
+}
+.btn-shimmer:hover::after { left: 160%; }
+
+/* ─── Glow pulse button ──────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(79,142,247,0.35), 0 6px 28px rgba(79,142,247,0.3); }
+  50%       { box-shadow: 0 0 0 1px rgba(99,102,241,0.5), 0 6px 50px rgba(79,142,247,0.55), 0 0 120px rgba(79,142,247,0.18); }
+}
+.btn-glow { animation: glow-pulse 2.8s ease infinite; }
+
+/* ─── Marquee ─────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 30s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Clip reveal ─────────────────────────────────────────────── */
+.clip-reveal { overflow: hidden; }
+
+/* ─── Animated border ─────────────────────────────────────────── */
+@keyframes border-spin {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+.animated-border {
+  position: relative;
+}
+.animated-border::before {
+  content: '';
+  position: absolute; inset: -1px;
+  border-radius: inherit; padding: 1px;
+  background: linear-gradient(135deg, rgba(79,142,247,0.5), rgba(139,92,246,0.2), rgba(79,142,247,0.1), rgba(139,92,246,0.5));
+  background-size: 300% 300%;
+  animation: border-spin 5s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Float animations ───────────────────────────────────────── */
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(-1.5deg); }
+}
+.float-a { animation: float-a 7s ease-in-out infinite; }
+.float-b { animation: float-b 9s ease-in-out infinite; }
+
+/* ─── Ping expand ────────────────────────────────────────────── */
+@keyframes ping-expand {
+  0%    { transform: scale(1); opacity: 0.6; }
+  100%  { transform: scale(2.8); opacity: 0; }
+}
+.ping-ring {
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  animation: ping-expand 2s ease-out infinite;
+}
+
+/* ─── Misc ────────────────────────────────────────────────────── */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.tabular { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
