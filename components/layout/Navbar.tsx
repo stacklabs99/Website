@@ -123,7 +123,11 @@ export default function Navbar() {
             <motion.a
               ref={ctaRef}
               href="#contact"
-              style={{ x: ctaX, y: ctaY }}
+              style={{
+                x: ctaX, y: ctaY,
+                background: 'linear-gradient(135deg,#1a4fd8,#4f8ef7)',
+                boxShadow: '0 0 0 1px rgba(79,142,247,0.35),0 4px 20px rgba(79,142,247,0.25)',
+              }}
               onMouseMove={(e) => {
                 const r = ctaRef.current!.getBoundingClientRect()
                 ctaX.set((e.clientX - r.left - r.width / 2) * 0.4)
@@ -133,10 +137,6 @@ export default function Navbar() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-[13px] font-semibold text-white btn-shimmer"
-              style={{
-                background: 'linear-gradient(135deg,#1a4fd8,#4f8ef7)',
-                boxShadow: '0 0 0 1px rgba(79,142,247,0.35),0 4px 20px rgba(79,142,247,0.25)',
-              }}
             >
               Get Started
               <span className="text-white/60">→</span>

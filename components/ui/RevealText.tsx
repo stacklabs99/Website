@@ -6,6 +6,7 @@ import { useRef } from 'react'
 interface RevealTextProps {
   children: string
   className?: string
+  style?: React.CSSProperties
   delay?: number
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span'
   once?: boolean
@@ -14,6 +15,7 @@ interface RevealTextProps {
 export function RevealWords({
   children,
   className,
+  style,
   delay = 0,
   as: Tag = 'h2',
   once = true,
@@ -24,7 +26,7 @@ export function RevealWords({
   const words = children.split(' ')
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={ref} className={className} style={style}>
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden">
           <motion.span
